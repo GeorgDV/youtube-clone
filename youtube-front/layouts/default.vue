@@ -74,6 +74,25 @@
       <v-app-bar-nav-icon @click.stop="isMiniVariant = !isMiniVariant" />
       <v-toolbar-title v-text="title" />
       <v-spacer />
+      <v-container>
+        <v-row>
+          <v-spacer />
+          <v-textarea
+            class="rounded-0"
+            label="Search"
+            outlined
+            rows="1"
+            row-height="15"
+            no-resize
+          ></v-textarea>
+          <v-btn
+            class="grey darken-3 rounded-0"
+          >
+            <v-icon>mdi-magnify</v-icon>
+          </v-btn>
+          <v-spacer />
+        </v-row>
+      </v-container>
     </v-app-bar>
     <v-main>
       <v-container>
