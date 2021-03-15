@@ -1,5 +1,7 @@
 # Youtube Clone
 
+Deployed to: http://youtube-clone-gdv.surge.sh/
+
 ## Build Setup
 
 ```bash
