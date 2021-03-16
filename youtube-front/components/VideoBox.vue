@@ -8,7 +8,7 @@
             :src="require(`../static/thumbnails/${source.id}.webp`)"
             alt="thumbnail"
           />
-          <div class="video--overlay rounded px-1">
+          <div class="video--overlay white--text rounded px-1">
             {{ source.length }}
           </div>
         </v-col>
@@ -22,7 +22,7 @@
           />
         </v-col>
         <v-col class="col-10 video__title">
-          <p class="video__title--content white--text">
+          <p class="video__title--content text--primary font-weight-bold">
             {{ source.title }}
           </p>
         </v-col>
@@ -30,25 +30,27 @@
       <v-row>
         <v-col class="col-2"></v-col>
         <v-col class="col-10 video__description">
-          <p class="video__description--content grey--text text--lighten-1 body-2">
+          <p class="video__description--content text--secondary text--lighten-1 body-2">
             <v-tooltip top>
               <template v-slot:activator="{ on, attrs }">
                 <a
-                  class="grey--text text--lighten-1 text-decoration-none"
+                  class="text--secondary font-weight-medium text-decoration-none"
                   :href="'/' + source.channel"
                   v-bind="attrs"
                   v-on="on"
                 >
                   {{ source.channel }}
-                  <v-icon class="ml-1 grey--text lighten-1" size="0.875rem">
+                  <v-icon class="ml-1 text--secondary font-weight-medium lighten-1" size="0.875rem">
                     mdi-check-circle
                   </v-icon>
                 </a>
               </template>
-              <span>{{ source.channel }}</span>
+              <span class="white--text font-weight-medium">{{ source.channel }}</span>
             </v-tooltip>
             <br />
-            {{ source.views }} views • {{ source.dateAdded }}
+            <span class="text--secondary font-weight-medium">
+              {{ source.views }} views • {{ source.dateAdded }}
+            </span>
           </p>
         </v-col>
       </v-row>
@@ -104,8 +106,8 @@ export default {
 .video__channel--logo img {
   display: block;
   margin: 0.25rem auto;
-  height: 2.5rem;
-  width: 2.5rem;
+  height: 2.25rem;
+  width: 2.25rem;
 }
 
 .video__title {

@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <v-navigation-drawer
+      color="primary"
       :mini-variant="isMiniVariant"
       :mini-variant-width="60"
       :clipped="true"
@@ -23,7 +24,7 @@
         <v-divider></v-divider>
         <div class="py-3 px-8">
           <p>Sign in to like videos, comment and subscribe.</p>
-          <v-btn outlined color="#3ea6ff">
+          <v-btn outlined color="#065fd4" class="rounded-0">
             <v-icon class="mr-1"> mdi-account-circle </v-icon>
             Sign In
           </v-btn>
@@ -31,7 +32,7 @@
 
         <v-divider></v-divider>
         <div class="py-3">
-          <h4 class="mx-8 grey--text lighten-1">BEST OF YOUTUBE</h4>
+          <h4 class="mx-8 text--secondary lighten-1">BEST OF YOUTUBE</h4>
           <list
             class="px-4"
             :items="
@@ -48,7 +49,7 @@
 
         <v-divider></v-divider>
         <div class="py-3">
-          <h4 class="mx-8 grey--text lighten-1">MORE FROM YOUTUBE</h4>
+          <h4 class="mx-8 text--secondary lighten-1">MORE FROM YOUTUBE</h4>
           <list
             class="px-4"
             :items="
@@ -64,41 +65,41 @@
         ></list>
 
         <v-divider></v-divider>
-        <v-footer style="background-color: #363636">
+        <v-footer color="primary">
           <div class="px-4 caption font-weight-bold">
             <p>
               <a
-                class="grey--text text--lighten-1 text-decoration-none"
+                class="text--secondary text-decoration-none"
                 href="/about"
                 >About &nbsp;</a
               >
               <a
-                class="grey--text text--lighten-1 text-decoration-none"
+                class="text--secondary text-decoration-none"
                 href="/press"
                 >Press &nbsp;</a
               >
               <a
-                class="grey--text text--lighten-1 text-decoration-none"
+                class="text--secondary text-decoration-none"
                 href="/copyright"
                 >Copyright &nbsp;</a
               >
               <a
-                class="grey--text text--lighten-1 text-decoration-none"
+                class="text--secondary text-decoration-none"
                 href="/contact"
                 >Contact us &nbsp;</a
               >
               <a
-                class="grey--text text--lighten-1 text-decoration-none"
+                class="text--secondary text-decoration-none"
                 href="/creator"
                 >Creator &nbsp;</a
               >
               <a
-                class="grey--text text--lighten-1 text-decoration-none"
+                class="text--secondary text-decoration-none"
                 href="/advertise"
                 >Advertise &nbsp;</a
               >
               <a
-                class="grey--text text--lighten-1 text-decoration-none"
+                class="text--secondary text-decoration-none"
                 href="/developers"
                 >Developers</a
               >
@@ -106,32 +107,32 @@
 
             <p>
               <a
-                class="grey--text text--lighten-1 text-decoration-none"
+                class="text--secondary text-decoration-none"
                 href="/terms"
                 >Terms &nbsp;</a
               >
               <a
-                class="grey--text text--lighten-1 text-decoration-none"
+                class="text--secondary text-decoration-none"
                 href="/policyandsafety"
                 >Policy & Safety &nbsp;</a
               >
               <a
-                class="grey--text text--lighten-1 text-decoration-none"
+                class="text--secondary text-decoration-none"
                 href="/howitworks"
                 >How YouTube works &nbsp;</a
               >
               <a
-                class="grey--text text--lighten-1 text-decoration-none"
+                class="text--secondary text-decoration-none"
                 href="/testnewfeatures"
                 >Test new features</a
               >
             </p>
-            <p class="grey--text text--darken-1">© 2021 Google LLC</p>
+            <p class="text--secondary">© 2021 Google LLC</p>
           </div>
         </v-footer>
       </span>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="true" fixed app>
+    <v-app-bar color="primary" :clipped-left="true" fixed app>
       <div class="mobile">
         <v-app-bar-nav-icon @click.stop="isMiniVariant = !isMiniVariant" />
         <a class="text-decoration-none white--text" href="/">
@@ -145,7 +146,7 @@
           </v-img>
         </a>
         <v-toolbar-title class="title ml-1" v-text="title" />
-        <sup class="grey--text lighten-1">EE</sup>
+        <sup class="text--secondary">EE</sup>
 
       </div>
       <v-spacer />
@@ -153,13 +154,17 @@
         <v-row justify="center">
           <input
             class="search-bar--input rounded-0"
+            :style="{ backgroundColor: isDarkTheme ? $vuetify.theme.themes.dark.secondary : $vuetify.theme.themes.light.primary,
+                      borderColor: isDarkTheme ? $vuetify.theme.themes.dark.accent : $vuetify.theme.themes.light.accent}"
             type="text"
             placeholder="Search.."
           />
           <v-tooltip bottom>
             <template v-slot:activator="{ on, attrs }">
               <v-btn
-                class="search-bar--button grey--text darken-3 grey rounded-0"
+                color="secondary"
+                class="search-bar--button text--secondary elevation-0 rounded-0"
+                :style="{borderColor: isDarkTheme ? $vuetify.theme.themes.dark.accent : $vuetify.theme.themes.light.accent + ' !important'}"
                 v-bind="attrs"
                 v-on="on"
               >
@@ -180,7 +185,7 @@
       </v-container>
       <v-menu offset-y>
         <template v-slot:activator="{ on, attrs }">
-          <v-btn class="menu-button mr-4" v-bind="attrs" v-on="on">
+          <v-btn color="primary" class="text--primary menu-button mr-4" v-bind="attrs" v-on="on">
             <v-icon> mdi-dots-grid </v-icon>
           </v-btn>
         </template>
@@ -238,11 +243,18 @@
 
       <v-menu :close-on-content-click="false" bottom offset-y>
         <template v-slot:activator="{ on, attrs }">
-          <v-btn class="menu-button mr-2" v-bind="attrs" v-on="on">
+          <v-btn color="primary" class="text--primary menu-button mr-2" v-bind="attrs" v-on="on">
             <v-icon> mdi-dots-vertical </v-icon>
           </v-btn>
         </template>
         <v-list>
+          <v-list-item @click="switchTheme">
+            <v-list-item-content class="ml-4">
+              <v-icon class="mr-4 text--secondary lighten-1">
+                {{ isDarkTheme ? 'mdi-brightness-4' : 'mdi-brightness-5'}}
+              </v-icon>
+            </v-list-item-content>
+          </v-list-item>
           <v-list-group
             v-for="item in settingsItems.filter((item) => !!item.items)"
             v-model="item.active"
@@ -251,7 +263,7 @@
           >
             <template v-slot:activator>
               <v-list-item>
-                <v-icon class="mr-4 grey--text lighten-1">
+                <v-icon class="mr-4 text--secondary lighten-1">
                   {{ item.icon }}
                 </v-icon>
                 <v-list-item-content>
@@ -275,7 +287,7 @@
             :key="item.title + '-single'"
             :to="item.to"
           >
-            <v-icon class="mx-4 grey--text lighten-1"> {{ item.icon }} </v-icon>
+            <v-icon class="mx-4 text--secondary"> {{ item.icon }} </v-icon>
             <v-list-item-content>
               <v-list-item-title>{{ item.title }}</v-list-item-title>
             </v-list-item-content>
@@ -290,7 +302,7 @@
           </v-list-item>
         </v-list>
       </v-menu>
-      <v-btn outlined color="#3ea6ff">
+      <v-btn outlined color="#065fd4" class="rounded-0">
         <v-icon class="mr-1"> mdi-account-circle </v-icon>
         Sign In
       </v-btn>
@@ -315,9 +327,10 @@ export default {
       title: "YouTube",
       isMiniVariant: false,
       isRestrictedMode: false,
+      isDarkTheme: this.$vuetify.theme.dark,
       settingsItems: [
         {
-          title: "Appearance: Dark",
+          title: "Appearance",
           icon: "mdi-brightness-4",
           items: [
             { title: "Use device theme" },
@@ -522,8 +535,9 @@ export default {
     };
   },
   methods: {
-    subMenuItemClicked() {
-      console.log("foo");
+    switchTheme() {
+      this.isDarkTheme = !this.isDarkTheme;
+      this.$vuetify.theme.dark = this.isDarkTheme;
     },
   },
 };
@@ -535,11 +549,11 @@ export default {
 }
 
 ::-webkit-scrollbar-track {
-  background: #363636;
+  background: #8b8b8b;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: rgb(107, 107, 107);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -560,6 +574,8 @@ export default {
   height: 2rem;
   background-color: #121212;
   color: white;
+  border-width: 1px;
+  border-style: solid;
 }
 
 .search-bar--input:focus {
@@ -567,7 +583,9 @@ export default {
 }
 
 .search-bar--button {
-  height: 2rem !important;
+  height: auto !important;
+  border-width: 1px !important;
+  border-style: solid !important;
 }
 
 .menu-button {
