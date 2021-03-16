@@ -30,7 +30,7 @@
       <v-row>
         <v-col class="col-2"></v-col>
         <v-col class="col-10 video__description">
-          <p class="grey--text text--lighten-1 body-2">
+          <p class="video__description--content grey--text text--lighten-1 body-2">
             <v-tooltip top>
               <template v-slot:activator="{ on, attrs }">
                 <a
@@ -40,13 +40,13 @@
                   v-on="on"
                 >
                   {{ source.channel }}
+                  <v-icon class="ml-1 grey--text lighten-1" size="0.875rem">
+                    mdi-check-circle
+                  </v-icon>
                 </a>
               </template>
               <span>{{ source.channel }}</span>
             </v-tooltip>
-            <v-icon class="ml-1 grey--text lighten-1" size="0.875rem">
-              mdi-check-circle
-            </v-icon>
             <br />
             {{ source.views }} views • {{ source.dateAdded }}
           </p>
@@ -77,10 +77,10 @@ export default {
 .container {
   margin: 0.125rem;
   padding: 1rem;
-  height: auto;
-  width: 40vh;
-  min-width: 20vh;
-  max-width: 40vh;
+  min-width: 24rem;
+  max-width: 24rem;
+  min-height: 22rem;
+  max-height: 22rem;
 }
 
 .container__content:hover {
@@ -94,7 +94,7 @@ export default {
 
 .video--thumbnail {
   width: 100%;
-  height: 20vh;
+  height: auto;
 }
 
 .video__channel--logo {
@@ -115,11 +115,18 @@ export default {
 
 .video__title--content {
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .video__description {
   padding: 0.5rem;
   padding-top: 0;
+}
+
+.video__description--content {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .video--overlay {

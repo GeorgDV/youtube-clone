@@ -132,19 +132,22 @@
       </span>
     </v-navigation-drawer>
     <v-app-bar :clipped-left="true" fixed app>
-      <v-app-bar-nav-icon @click.stop="isMiniVariant = !isMiniVariant" />
-      <a class="text-decoration-none white--text" href="/">
-        <v-img
-          class="white--text"
-          width="25"
-          src="https://upload.wikimedia.org/wikipedia/commons/e/e1/YouTube_play_buttom_icon_%282013-2017%29.svg"
-          max-height="100px"
-          max-width="300px"
-        >
-        </v-img>
-      </a>
-      <v-toolbar-title class="title ml-1" v-text="title" />
-      <sup class="grey--text lighten-1">EE</sup>
+      <div class="mobile">
+        <v-app-bar-nav-icon @click.stop="isMiniVariant = !isMiniVariant" />
+        <a class="text-decoration-none white--text" href="/">
+          <v-img
+            class="white--text"
+            width="25"
+            src="https://upload.wikimedia.org/wikipedia/commons/e/e1/YouTube_play_buttom_icon_%282013-2017%29.svg"
+            max-height="100px"
+            max-width="300px"
+          >
+          </v-img>
+        </a>
+        <v-toolbar-title class="title ml-1" v-text="title" />
+        <sup class="grey--text lighten-1">EE</sup>
+
+      </div>
       <v-spacer />
       <v-container>
         <v-row justify="center">
@@ -571,5 +574,16 @@ export default {
   box-shadow: none;
   padding: 0 !important;
   min-width: 2rem !important;
+}
+
+.mobile {
+  display: inline-flex;
+  align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .mobile {
+    display: none;
+  }
 }
 </style>
