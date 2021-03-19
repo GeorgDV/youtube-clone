@@ -581,14 +581,14 @@ export default {
   width: 40%;
   padding: 1rem;
   height: 2rem;
-  background-color: #121212;
   color: white;
   border-width: 1px;
   border-style: solid;
 }
 
 .search-bar--input:focus {
-  outline: #3ea6ff 1px solid;
+  outline: #1c62b9 1px solid;
+  outline-offset: -1px;
 }
 
 .search-bar--button {
