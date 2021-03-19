@@ -48,6 +48,7 @@ export default {
         dark: {
           primary: '#202020',
           secondary: '#181818',
+          outline: '#3ea6ff',
           accent: colors.grey.darken3,
           info: colors.teal.lighten1,
           warning: colors.amber.base,
@@ -57,6 +58,7 @@ export default {
         light: {
           primary: '#FFFFFF',
           secondary: '#F8F8F8',
+          outline: '#065fd4',
           accent: '#D3D3D3',
           error: '#FF5252',
           info: '#2196F3',

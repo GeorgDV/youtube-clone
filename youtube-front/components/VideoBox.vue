@@ -35,17 +35,17 @@
               <template v-slot:activator="{ on, attrs }">
                 <a
                   class="text--secondary font-weight-medium text-decoration-none"
-                  :href="'/' + source.channel"
+                  :href="'/' + source.channelName"
                   v-bind="attrs"
                   v-on="on"
                 >
-                  {{ source.channel }}
+                  {{ source.channelName }}
                   <v-icon class="ml-1 text--secondary font-weight-medium lighten-1" size="0.875rem">
                     mdi-check-circle
                   </v-icon>
                 </a>
               </template>
-              <span class="white--text font-weight-medium">{{ source.channel }}</span>
+              <span class="white--text font-weight-medium">{{ source.channelName }}</span>
             </v-tooltip>
             <br />
             <span class="text--secondary font-weight-medium">
@@ -79,9 +79,7 @@ export default {
 .container {
   margin: 0.125rem;
   padding: 1rem;
-  min-width: 24rem;
   max-width: 24rem;
-  min-height: 22rem;
   max-height: 22rem;
 }
 

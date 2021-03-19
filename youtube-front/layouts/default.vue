@@ -3,7 +3,7 @@
     <v-navigation-drawer
       color="primary"
       :mini-variant="isMiniVariant"
-      :mini-variant-width="60"
+      :mini-variant-width="75"
       :clipped="true"
       fixed
       app
@@ -11,6 +11,7 @@
       <list
         class="px-4"
         :items="sidebarItems.filter((link) => link.section === 'mainLinks')"
+        :display-title-minimized="isMiniVariant"
       ></list>
 
       <v-divider v-if="!isMiniVariant"></v-divider>
@@ -18,13 +19,14 @@
       <list
         class="px-4"
         :items="sidebarItems.filter((link) => link.section === 'personalLinks')"
+        :display-title-minimized="isMiniVariant"  
       ></list>
 
       <span v-if="!isMiniVariant">
         <v-divider></v-divider>
         <div class="py-3 px-8">
           <p>Sign in to like videos, comment and subscribe.</p>
-          <v-btn outlined color="#065fd4" class="rounded-0">
+          <v-btn outlined color="outline" class="rounded-0">
             <v-icon class="mr-1"> mdi-account-circle </v-icon>
             Sign In
           </v-btn>
@@ -132,7 +134,13 @@
         </v-footer>
       </span>
     </v-navigation-drawer>
-    <v-app-bar color="primary" :clipped-left="true" fixed app>
+    <v-app-bar
+      class="elevation-0"
+      color="primary"
+      :clipped-left="true"
+      fixed
+      app
+    >
       <div class="mobile">
         <v-app-bar-nav-icon @click.stop="isMiniVariant = !isMiniVariant" />
         <a class="text-decoration-none white--text" href="/">
@@ -146,18 +154,18 @@
           </v-img>
         </a>
         <v-toolbar-title class="title ml-1" v-text="title" />
-        <sup class="text--secondary">EE</sup>
+        <sup class="text--secondary ml-1">EE</sup>
 
       </div>
       <v-spacer />
       <v-container>
         <v-row justify="center">
           <input
-            class="search-bar--input rounded-0"
+            class="search-bar--input text--primary rounded-0"
             :style="{ backgroundColor: isDarkTheme ? $vuetify.theme.themes.dark.secondary : $vuetify.theme.themes.light.primary,
                       borderColor: isDarkTheme ? $vuetify.theme.themes.dark.accent : $vuetify.theme.themes.light.accent}"
             type="text"
-            placeholder="Search.."
+            placeholder="Search"
           />
           <v-tooltip bottom>
             <template v-slot:activator="{ on, attrs }">
@@ -302,12 +310,12 @@
           </v-list-item>
         </v-list>
       </v-menu>
-      <v-btn outlined color="#065fd4" class="rounded-0">
+      <v-btn outlined color="outline" class="rounded-0">
         <v-icon class="mr-1"> mdi-account-circle </v-icon>
         Sign In
       </v-btn>
     </v-app-bar>
-    <v-main>
+    <v-main class="secondary">
       <v-container class="container">
         <nuxt />
       </v-container>
@@ -544,28 +552,29 @@ export default {
 </script>
 
 <style>
+.v-navigation-drawer__content {
+  overflow-y: hidden;
+}
+
+.v-navigation-drawer__content:hover {
+  overflow-y: visible;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }
 
-::-webkit-scrollbar-track {
-  background: #8b8b8b;
-}
-
 ::-webkit-scrollbar-thumb {
-  background: rgb(107, 107, 107);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
+   background: #969696b3;
 }
 
 .container {
   max-width: none;
+  padding-left: 1.5rem;
 }
 
 .title {
-  min-width: 5.75rem;
+  min-width: fit-content;
 }
 
 .search-bar--input {
